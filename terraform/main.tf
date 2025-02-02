@@ -8,7 +8,7 @@ module "email" {
   control_tower_parameters = {
     AccountEmail              = "alonsotaglecom+awsemail@gmail.com"
     AccountName               = "Email"
-    ManagedOrganizationalUnit = local.account_comms
+    ManagedOrganizationalUnit = "Comms"
     SSOUserEmail              = "alonsotaglecom+awsemail@gmail.com"
     SSOUserFirstName          = "Alonso"
     SSOUserLastName           = "Tagle"
