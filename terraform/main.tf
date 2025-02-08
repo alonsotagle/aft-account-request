@@ -14,6 +14,8 @@ module "comms_email" {
     SSOUserLastName           = "Tagle"
   }
 
+  aft_account_ref = "aft-comms-email" # Name of the Github repo and Terraform Workspace
+
   account_tags = {
     "ManagedBy" = "Terraform - AFT"
   }
@@ -26,5 +28,5 @@ module "comms_email" {
   custom_fields = {
   }
 
-  # account_customizations_name = "comms"
+  account_customizations_name = "comms"
 }

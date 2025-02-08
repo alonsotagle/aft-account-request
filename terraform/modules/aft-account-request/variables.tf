@@ -44,3 +44,8 @@ variable "account_customizations_name" {
   default     = null
   description = "The name of the account customizations to apply"
 }
+
+variable "aft_account_ref" {
+  type        = string
+  description = "Name of the Github repo and Terraform Workspace"
+}
