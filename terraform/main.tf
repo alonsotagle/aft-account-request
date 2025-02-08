@@ -24,8 +24,7 @@ module "comms_email" {
   }
 
   custom_fields = {
-    group = "comms"
   }
 
-  account_customizations_name = "comms"
+  # account_customizations_name = "comms"
 }
