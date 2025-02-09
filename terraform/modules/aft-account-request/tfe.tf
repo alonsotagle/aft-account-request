@@ -22,3 +22,18 @@ resource "tfe_workspace_settings" "aft_workspace_settings" {
   workspace_id   = tfe_workspace.aft_workspace.id
   execution_mode = "remote"
 }
+
+resource "tfe_variable" "tfc_aws_provider_auth" {
+  key          = "TFC_AWS_PROVIDER_AUTH"
+  value        = "true"
+  category     = "env"
+  workspace_id = tfe_workspace.aft_workspace.id
+}
+
+resource "tfe_variable" "tfc_example_role_arn" {
+  sensitive    = true
+  key          = "TFC_AWS_RUN_ROLE_ARN"
+  value        = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/tfe-aws"
+  category     = "env"
+  workspace_id = tfe_workspace.aft_workspace.id
+}
