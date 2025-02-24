@@ -21,6 +21,7 @@ module "finance_expenses" {
 }
 ```
 
-From the AFT AWS Account, release changes in CodePipeline
-- `ct-aft-account-request`
-- `ct-aft-account-provisioning-customizations`
+From the AFT AWS Account, release changes from the `ct-aft-account-request`
+pipeline.
+
+Review policies from `tfe-aws` role in the new account.
