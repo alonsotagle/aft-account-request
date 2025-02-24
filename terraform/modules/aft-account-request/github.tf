@@ -12,6 +12,7 @@ resource "github_repository" "repo" {
   allow_squash_merge     = true
   allow_rebase_merge     = true
   delete_branch_on_merge = true
+  vulnerability_alerts   = true
 
   template {
     owner                = "alonsotagle"

@@ -8,3 +8,19 @@ This repository contains boilerplate configuration for defining account
 requests to use with the Account Factory for Terraform module. The AFT pipeline
 requires the structure used and the included submodule to define a DynamoDB
 table item with your account specifications. 
+
+
+## Create a new account
+
+Create a new account by adding a new module in the `terraform/main.tf` file.
+
+Example:
+```hcl
+module "finance_expenses" {
+  source = "./modules/aft-account-request"
+}
+```
+
+From the AFT AWS Account, release changes in CodePipeline
+- `ct-aft-account-request`
+- `ct-aft-account-provisioning-customizations`
