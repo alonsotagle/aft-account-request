@@ -13,3 +13,8 @@ provider "aws" {
     }
   }
 }
+
+provider "github" {
+  owner = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["gh_owner"]
+  token = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["github_token"]
+}

@@ -15,6 +15,13 @@ module "comms_email" {
     SSOUserLastName           = "Tagle"
   }
 
+  tfe_parameters = {
+    tfe_token = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"]
+    tfe_organization = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
+    tfe_project_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
+    tfe_github_app_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"]
+  }
+
   aft_account_ref = "aft-comms-email" # Name of the Github repo and Terraform Workspace
 
   account_tags = {
@@ -44,6 +51,13 @@ module "comms_maia" {
     SSOUserLastName           = "Tagle"
   }
 
+  tfe_parameters = {
+    tfe_token = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"]
+    tfe_organization = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
+    tfe_project_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
+    tfe_github_app_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"]
+  }
+
   aft_account_ref = "aft-comms-maia" # Name of the Github repo and Terraform Workspace
 
   account_tags = {
@@ -71,6 +85,13 @@ module "finance_expenses" {
     SSOUserEmail              = "alonsotaglecom+expenses@gmail.com"
     SSOUserFirstName          = "Alonso"
     SSOUserLastName           = "Tagle"
+  }
+
+  tfe_parameters = {
+    tfe_token = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"]
+    tfe_organization = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
+    tfe_project_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
+    tfe_github_app_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"]
   }
 
   aft_account_ref = "aft-finance-expenses" # Name of the Github repo and Terraform Workspace

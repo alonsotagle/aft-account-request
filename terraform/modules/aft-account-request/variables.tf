@@ -49,3 +49,12 @@ variable "aft_account_ref" {
   type        = string
   description = "Name of the Github repo and Terraform Workspace"
 }
+
+variable "tfe_parameters" {
+  type = object({
+    tfe_token         = string
+    tfe_organization  = string
+    tfe_project_id    = string
+    tfe_github_app_id = string
+  })
+}

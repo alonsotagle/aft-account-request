@@ -2,10 +2,10 @@ locals {
   custom_fields = merge({
     "aft-account-ref"   = var.aft_account_ref,
     "github-repo"       = github_repository.repo.full_name,
-    "tfe-token"         = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"],
-    "tfe-organization"  = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"],
-    "tfe-project-id"    = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"],
-    "tfe-github-app-id" = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"],
+    "tfe-token"         = lookup(var.tfe_parameters, "tfe_token"),
+    "tfe-organization"  = lookup(var.tfe_parameters, "tfe_organization"),
+    "tfe-project-id"    = lookup(var.tfe_parameters, "tfe_project_id"),
+    "tfe-github-app-id" = lookup(var.tfe_parameters, "tfe_github_app_id"),
   }, var.custom_fields)
 }
 
