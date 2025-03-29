@@ -1,3 +1,8 @@
+provider "github" {
+  owner = lookup(var.tfe_parameters, "gh_owner")
+  token = lookup(var.tfe_parameters, "github_token")
+}
+
 resource "github_repository" "repo" {
   name        = var.aft_account_ref
   description = "This repository is created automatically by AWS AFT account creation from a template."

@@ -20,6 +20,8 @@ module "comms_email" {
     tfe_organization = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
     tfe_project_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
     tfe_github_app_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"]
+    gh_owner = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["gh_owner"]
+    github_token = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["github_token"]
   }
 
   aft_account_ref = "aft-comms-email" # Name of the Github repo and Terraform Workspace
@@ -56,6 +58,8 @@ module "comms_maia" {
     tfe_organization = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
     tfe_project_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
     tfe_github_app_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"]
+    gh_owner = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["gh_owner"]
+    github_token = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["github_token"]
   }
 
   aft_account_ref = "aft-comms-maia" # Name of the Github repo and Terraform Workspace
@@ -92,6 +96,8 @@ module "finance_expenses" {
     tfe_organization = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
     tfe_project_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
     tfe_github_app_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"]
+    gh_owner = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["gh_owner"]
+    github_token = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["github_token"]
   }
 
   aft_account_ref = "aft-finance-expenses" # Name of the Github repo and Terraform Workspace
