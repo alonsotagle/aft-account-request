@@ -14,7 +14,11 @@ provider "aws" {
   }
 }
 
+locals {
+  aft_secrets = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)
+}
+
 provider "github" {
-  owner = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["gh_owner"]
-  token = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["github_token"]
+  owner = local.aft_secrets["gh_owner"]
+  token = local.aft_secrets["github_token"]
 }
