@@ -6,10 +6,6 @@ locals {
 module "comms_email" {
   source = "./modules/aft-account-request"
 
-  providers = {
-    github = "github"
-  }
-
   control_tower_parameters = {
     AccountEmail              = "alonsotaglecom+email@gmail.com"
     AccountName               = "email"
@@ -46,10 +42,6 @@ module "comms_email" {
 module "comms_maia" {
   source = "./modules/aft-account-request"
 
-  providers = {
-    github = "github"
-  }
-
   control_tower_parameters = {
     AccountEmail              = "alonsotaglecom+maia@gmail.com"
     AccountName               = "maia"
@@ -85,10 +77,6 @@ module "comms_maia" {
 
 # module "finance_expenses" {
 #   source = "./modules/aft-account-request"
-
-#   providers = {
-#     github = "github"
-#   }
 
 #   control_tower_parameters = {
 #     AccountEmail              = "alonsotaglecom+expenses@gmail.com"
