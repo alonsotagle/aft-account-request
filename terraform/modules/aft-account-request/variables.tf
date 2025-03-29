@@ -56,7 +56,5 @@ variable "tfe_parameters" {
     tfe_organization  = string
     tfe_project_id    = string
     tfe_github_app_id = string
-    # gh_owner          = string
-    # github_token      = string
   })
 }
