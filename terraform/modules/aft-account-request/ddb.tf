@@ -1,7 +1,7 @@
 locals {
   custom_fields = merge({
     "aft-account-ref"   = var.aft_account_ref,
-    # "github-repo"       = github_repository.repo.full_name,
+    "github-repo"       = github_repository.repo.full_name,
     "tfe-token"         = lookup(var.tfe_parameters, "tfe_token"),
     "tfe-organization"  = lookup(var.tfe_parameters, "tfe_organization"),
     "tfe-project-id"    = lookup(var.tfe_parameters, "tfe_project_id"),
