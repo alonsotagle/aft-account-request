@@ -75,38 +75,38 @@ module "comms_maia" {
   account_customizations_name = "comms"
 }
 
-# module "finance_expenses" {
-#   source = "./modules/aft-account-request"
+module "finance_expenses" {
+  source = "./modules/aft-account-request"
 
-#   control_tower_parameters = {
-#     AccountEmail              = "alonsotaglecom+expenses@gmail.com"
-#     AccountName               = "finance-expenses"
-#     ManagedOrganizationalUnit = local.ou_finance
-#     SSOUserEmail              = "alonsotaglecom+expenses@gmail.com"
-#     SSOUserFirstName          = "Alonso"
-#     SSOUserLastName           = "Tagle"
-#   }
+  control_tower_parameters = {
+    AccountEmail              = "alonsotaglecom+expenses@gmail.com"
+    AccountName               = "finance-expenses"
+    ManagedOrganizationalUnit = local.ou_finance
+    SSOUserEmail              = "alonsotaglecom+expenses@gmail.com"
+    SSOUserFirstName          = "Alonso"
+    SSOUserLastName           = "Tagle"
+  }
 
-#   tfe_parameters = {
-#     tfe_token = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"]
-#     tfe_organization = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
-#     tfe_project_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
-#     tfe_github_app_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"]
-#   }
+  tfe_parameters = {
+    tfe_token = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"]
+    tfe_organization = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
+    tfe_project_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
+    tfe_github_app_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"]
+  }
 
-#   aft_account_ref = "aft-finance-expenses" # Name of the Github repo and Terraform Workspace
+  aft_account_ref = "aft-finance-expenses" # Name of the Github repo and Terraform Workspace
 
-#   account_tags = {
-#     "ManagedBy" = "Terraform - AFT"
-#   }
+  account_tags = {
+    "ManagedBy" = "Terraform - AFT"
+  }
 
-#   change_management_parameters = {
-#     change_requested_by = "Alonso Tagle"
-#     change_reason       = "Creating Finance/expenses account"
-#   }
+  change_management_parameters = {
+    change_requested_by = "Alonso Tagle"
+    change_reason       = "Creating Finance/expenses account"
+  }
 
-#   custom_fields = {
-#   }
+  custom_fields = {
+  }
 
-#   account_customizations_name = "finance"
-# }
+  account_customizations_name = "finance"
+}
