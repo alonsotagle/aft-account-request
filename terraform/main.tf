@@ -7,7 +7,7 @@ module "comms_email" {
   source = "./modules/aft-account-request"
 
   providers = {
-    github  = "github"
+    github  = integrations/github
   }
 
   control_tower_parameters = {
