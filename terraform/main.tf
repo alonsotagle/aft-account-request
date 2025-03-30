@@ -6,6 +6,10 @@ locals {
 module "comms_email" {
   source = "./modules/aft-account-request"
 
+  providers = {
+    github  = "github"
+  }
+
   control_tower_parameters = {
     AccountEmail              = "alonsotaglecom+email@gmail.com"
     AccountName               = "email"
