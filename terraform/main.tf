@@ -1,6 +1,7 @@
 locals {
-  ou_comms   = "Comms (ou-2e4r-45ykgo1b)"
-  ou_finance = "Finance (ou-2e4r-vvvnvvei)"
+  ou_comms    = "Comms (ou-2e4r-45ykgo1b)"
+  ou_finance  = "Finance (ou-2e4r-vvvnvvei)"
+  ou_external = "External (ou-2e4r-cyqw22vr)"
 }
 
 module "comms_email" {
@@ -16,9 +17,9 @@ module "comms_email" {
   }
 
   tfe_parameters = {
-    tfe_token = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"]
-    tfe_organization = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
-    tfe_project_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
+    tfe_token         = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"]
+    tfe_organization  = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
+    tfe_project_id    = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
     tfe_github_app_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"]
   }
 
@@ -52,9 +53,9 @@ module "comms_maia" {
   }
 
   tfe_parameters = {
-    tfe_token = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"]
-    tfe_organization = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
-    tfe_project_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
+    tfe_token         = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"]
+    tfe_organization  = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
+    tfe_project_id    = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
     tfe_github_app_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"]
   }
 
@@ -88,9 +89,9 @@ module "finance_expenses" {
   }
 
   tfe_parameters = {
-    tfe_token = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"]
-    tfe_organization = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
-    tfe_project_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
+    tfe_token         = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"]
+    tfe_organization  = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
+    tfe_project_id    = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
     tfe_github_app_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"]
   }
 
@@ -109,4 +110,40 @@ module "finance_expenses" {
   }
 
   account_customizations_name = "finance"
+}
+
+module "external_services" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "alonsotaglecom+external@gmail.com"
+    AccountName               = "external"
+    ManagedOrganizationalUnit = local.ou_external
+    SSOUserEmail              = "alonsotaglecom+external@gmail.com"
+    SSOUserFirstName          = "Alonso"
+    SSOUserLastName           = "Tagle"
+  }
+
+  tfe_parameters = {
+    tfe_token         = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"]
+    tfe_organization  = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
+    tfe_project_id    = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
+    tfe_github_app_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"]
+  }
+
+  aft_account_ref = "aft-external-services" # Name of the Github repo and Terraform Workspace
+
+  account_tags = {
+    "ManagedBy" = "Terraform - AFT"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Alonso Tagle"
+    change_reason       = "Creating External services account"
+  }
+
+  custom_fields = {
+  }
+
+  account_customizations_name = "external"
 }
