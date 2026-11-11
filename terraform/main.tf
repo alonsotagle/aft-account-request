@@ -18,10 +18,10 @@ module "comms_email" {
   }
 
   tfe_parameters = {
-    tfe_token         = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"]
-    tfe_organization  = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
-    tfe_project_id    = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
-    tfe_github_app_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"]
+    tfe_token         = local.aft_secrets["tfe_token"]
+    tfe_organization  = local.aft_secrets["tfe_organization"]
+    tfe_project_id    = local.aft_secrets["tfe_project_id"]
+    tfe_github_app_id = local.aft_secrets["tfe_github_app_id"]
   }
 
   aft_account_ref = "aft-comms-email" # Name of the Github repo and Terraform Workspace
@@ -54,10 +54,10 @@ module "comms_maia" {
   }
 
   tfe_parameters = {
-    tfe_token         = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"]
-    tfe_organization  = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
-    tfe_project_id    = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
-    tfe_github_app_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"]
+    tfe_token         = local.aft_secrets["tfe_token"]
+    tfe_organization  = local.aft_secrets["tfe_organization"]
+    tfe_project_id    = local.aft_secrets["tfe_project_id"]
+    tfe_github_app_id = local.aft_secrets["tfe_github_app_id"]
   }
 
   aft_account_ref = "aft-comms-maia" # Name of the Github repo and Terraform Workspace
@@ -90,10 +90,10 @@ module "finance_expenses" {
   }
 
   tfe_parameters = {
-    tfe_token         = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"]
-    tfe_organization  = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
-    tfe_project_id    = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
-    tfe_github_app_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"]
+    tfe_token         = local.aft_secrets["tfe_token"]
+    tfe_organization  = local.aft_secrets["tfe_organization"]
+    tfe_project_id    = local.aft_secrets["tfe_project_id"]
+    tfe_github_app_id = local.aft_secrets["tfe_github_app_id"]
   }
 
   aft_account_ref = "aft-finance-expenses" # Name of the Github repo and Terraform Workspace
@@ -126,10 +126,10 @@ module "external_services" {
   }
 
   tfe_parameters = {
-    tfe_token         = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"]
-    tfe_organization  = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
-    tfe_project_id    = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
-    tfe_github_app_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"]
+    tfe_token         = local.aft_secrets["tfe_token"]
+    tfe_organization  = local.aft_secrets["tfe_organization"]
+    tfe_project_id    = local.aft_secrets["tfe_project_id"]
+    tfe_github_app_id = local.aft_secrets["tfe_github_app_id"]
   }
 
   aft_account_ref = "aft-external-services" # Name of the Github repo and Terraform Workspace
@@ -162,10 +162,10 @@ module "zazudental" {
   }
 
   tfe_parameters = {
-    tfe_token         = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_token"]
-    tfe_organization  = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_organization"]
-    tfe_project_id    = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_project_id"]
-    tfe_github_app_id = jsondecode(data.aws_secretsmanager_secret_version.aft_secrets.secret_string)["tfe_github_app_id"]
+    tfe_token         = local.aft_secrets["tfe_token"]
+    tfe_organization  = local.aft_secrets["tfe_organization"]
+    tfe_project_id    = local.aft_secrets["tfe_project_id"]
+    tfe_github_app_id = local.aft_secrets["tfe_github_app_id"]
   }
 
   aft_account_ref = "zazudental" # Name of the Github repo and Terraform Workspace
